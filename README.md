@@ -14,7 +14,7 @@ Como Executar
     Clone este repositório:
 
 
-git clone https://github.com/seu-usuario/lista-de-compras-app.git
+git clone https://github.com/morty-maligno/teste.git
 cd lista-de-compras-app
 
     Crie um arquivo .env baseado no arquivo .env.example tanto para o backend quanto para o frontend:
@@ -35,7 +35,7 @@ docker-compose up -d
     Acesse o container do backend e execute as migrações e as seeds:
 
 
-docker exec -it lista-de-compras-app_backend_1 bash
+docker-compose exec -it web bash
 php artisan migrate
 php artisan db:seed
 exit
@@ -45,7 +45,7 @@ exit
 
 docker-compose up -d
 
-    Abra o navegador e acesse a URL http://localhost:8080 para ver a aplicação em funcionamento.
+    Abra o navegador e acesse a URL http://localhost:8000 para ver a aplicação em funcionamento.
 
 Parando e Removendo os Containers
 
