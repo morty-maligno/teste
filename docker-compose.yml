@@ -1,0 +1,30 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: meu_projeto_laravel:latest
+    container_name: meu_projeto_laravel
+    ports:
+      - "8000:80"
+    volumes:
+      - ./lista-de-compras:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: meu_projeto_laravel_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_root_password
+      MYSQL_DATABASE: laravel_db
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: my_secret_user_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
